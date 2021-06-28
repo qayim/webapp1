@@ -2,8 +2,18 @@
 	session_start();
     require_once "pdo.php";
 	
-    $stmt = $pdo->query("SELECT did, dcode, dname, dlogo, dcompany, daddress, dpostal, dcountry, dtagline, ddesc, damount, dunit, start, end, dcountrysupp FROM deal");
+	$phone = $_SESSION["phone"];
+	
+    $stmt = $pdo->query("SELECT * FROM deal;");
+	 
     $rows = $stmt->fetchAll(PDO::FETCH_ASSOC);
+	
+	$stmts = $pdo->query("SELECT * FROM users;");
+	 
+    $rows1 = $stmts->fetchAll(PDO::FETCH_ASSOC);
+	
+	
+	
 
 ?>
 
@@ -82,11 +92,28 @@
 			text-align: center;
 		}
 		
+		.fa-user{
+			color: black;
+		}
+		
 		</style>
     </head>
     <body>
         <div class="logo">
-            <h1> Ringgit%</h1>
+            <h1> Ringgit% <a href="user.php"><i class="fas fa-user"></i></a></h1>
+			
+			<h2><i class="fas fa-coins"></i> Coins: 
+			<?php 
+				foreach ($rows1 as $row1) {
+					if($row1['phone'] === $phone){
+					echo(" ".$row1['coinamount']." ");
+					}else{
+						echo(" ");
+					}
+				}
+			?>
+			</h2>
+			
        </div>
 	   <div class="two">
 			<a href="dealregister.php" class="btn btn-primary btn-lg">Register deal</a>
@@ -140,6 +167,7 @@
 											echo('</div>');
 										echo('</a>');
 									echo('</div>');
+						
 						}
 						echo('</div>');
 					
@@ -153,15 +181,7 @@
 			</div>
 				
 				<p> </p>
-				<p class="share">Share:</p> 
-				<div class="icons">
-				<a href=""><i class="fab fa-whatsapp" style="font-size:50px;"></i></a>
-				<a href=""><i class="fab fa-facebook" style="font-size:50px;"></i></a>
-				<a href=""><i class="fab fa-twitter" style="font-size:50px;"></i></a>
-				<a href=""><i class="fab fa-facebook-messenger" style="font-size:50px;"></i></a>
-				<a href=""><i class="fab fa-instagram" style="font-size:50px;"></i></a>
-				<a href=""><i class="fa fa-envelope" style="font-size:50px; aria-hidden="true" ></i></a>
-				</div>
+				
 				<div class="terms">
 					<p>*T&C applies</p>
 				</div>
