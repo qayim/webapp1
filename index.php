@@ -24,11 +24,17 @@ session_start();
                 ':emai' => htmlentities($_POST['email']),
                 ':pas' => htmlentities(md5($_POST['pass'])),
             ));
+			$rows = $stmt->fetchAll(PDO::FETCH_ASSOC);
+			
+			
 			 $count = $stmt->rowCount();  
-			 
+			foreach($rows as $row){
+			
                 if($count > 0){  
+					
                      $_SESSION["email"] = $_POST["email"];  
 					 $_SESSION["pass"] = md5($_POST["pass"]);
+					 $_SESSION["phone"] = $row["phone"];
                      header("location: deal.php");  
                 }  
                 else{  
@@ -39,6 +45,7 @@ session_start();
             $_SESSION['success'] = "Logged in";
             header("Location: deal.php");
             return;
+			}
         }
     }
  ?>  
@@ -62,9 +69,10 @@ session_start();
 			src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js">
 		</script>
 		<style>
-		.container-lg{
+		.container-sm{
 			text-align: center;
-			margin: center;
+			padding: 10px;
+			width:550px;
 		}
 		.logo{
 			font-family: "Trebuchet MS", sans-serif;
@@ -98,8 +106,8 @@ session_start();
                 unset($_SESSION['error']);
               }
         ?>
-		
-		<div class="container-lg">
+		<p> </p>
+		<div class="container-sm p-1 border">
 		<div class="logo">
 		<h1>Ringgit%</h1>
 		</div>
@@ -128,5 +136,6 @@ session_start();
 		</div>
         
 	</div>
+	<p> </p>
     </body>
 </html>
