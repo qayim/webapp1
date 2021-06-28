@@ -121,7 +121,10 @@
 		.container-sm{
 			text-align: center;
 			padding: 10px;
+			width:600px;
 		}
+		
+		
 		.logo{
 			font-family: "Trebuchet MS", sans-serif;
 			padding-top: 70px;
@@ -144,6 +147,12 @@
 			font-size: 20px;
 			padding: 10px;
 		}
+		#dcountry, #dcountrysupp{
+			padding:10px;
+			height:53px;
+			width:355px;
+			font-size:14pt;
+		}
 		
 		</style>
     </head>
@@ -164,36 +173,73 @@
                         <input type="text" placeholder="Deal name" name="dname" id="dname">
 						<p> </p>
 						
+						<div class="container-fixed">
 						<p class="dlogo">Company logo </p>
-							<input type="file" name="dlogo" id="dlogo" accept="*/image" />  
-							
+							<input type="file" name="dlogo" id="dlogo" accept="*/image" /> 
+						</div>
+						
 						<p> </p>
+						
                         <input type="text" placeholder="Company name" name="dcompany" id="dcompany"></br>
+						
 						<p> </p>
+						
 						<input type="text" placeholder="Address" name="daddress" id="daddress">
+						
 						<p> </p>
+						
                         <input type="text" placeholder="Postal" name="dpostal" id="dpostal">
+						
 						<p> </p>
-                        <input type="text" placeholder="Country" name="dcountry" id="dcountry"></br>
+						<p class="dlogo">Company country:</p>
+						<select name="dcountry" id="dcountry">
+							<option value="Malaysia">Malaysia</option>
+							<option value="Indonesia">Indonesia</option>
+							<option value="Brunei">Brunei</option>
+							<option value="Singapore">Singapore</option>
+						 </select>
+						
 						<p> </p>
+						
 						<input type="text" placeholder="Tag line" name="dtagline" id="dtagline">
+						
 						<p> </p>
+						
 						<input type="textarea" placeholder="Description" name="ddesc" id="ddesc">
+						
 						<p> </p>
+						
 						<input type="text" placeholder="Amount" name="damount" id="damount">
+						
 						<p> </p>
-						<input type="text" placeholder="Unit" name="dunit" id="dunit">
+						
+						<p class="dlogo">Deal unit: </p>
+							  <input type="radio" id="giftcard" name="dunit" value="giftcard" style="height:35px; width:35px; vertical-align: middle;">
+							  <label for="giftcard">Giftcard</label>
+							  <input type="radio" id="percentage" name="dunit" value="%" style="height:35px; width:35px; vertical-align: middle;>
+							  <label for="percentage">% Percentage</label>
+							  
 						<p> </p>
+						
 						<p class="dlogo">Period </p>
 						<input type="date" name="start" id="start">
 						<p class="to">to</p>
 						<input type="date" name="end" id="end">
+						
 						<p> </p>
-						<input type="text" placeholder="Country supported" name="dcountrysupp" id="dcountrysupp">
+						
+						<p class="dlogo">Country supported:</p>
+						<select name="dcountrysupp" id="dcountrysupp">
+							<option value="Malaysia">Malaysia</option>
+							<option value="Indonesia">Indonesia</option>
+							<option value="Brunei">Brunei</option>
+							<option value="Singapore">Singapore</option>
+						  </select>
+  
 						<p> </p>
 
-						
                         <input type="submit" name="insert"  class="btn btn-info btn-lg" value="Register">
+						
 						<p> </p>
 						
                     </form>
