@@ -67,6 +67,13 @@
 			text-align: center;
 			margin: center;
 		}
+		
+		.container-sm{
+			text-align: center;
+			padding: 10px;
+			width:550px;
+		}
+		
 		.logo{
 			font-family: "Trebuchet MS", sans-serif;
 			padding-top: 70px;
@@ -89,8 +96,8 @@
     </head>
     <body>
 	
-		
-     <div class="container fluid">   
+	<p> </p>
+     <div class="container-sm p-1 border">   
 	 
         <?php 
 		//error message
@@ -110,10 +117,13 @@
             <input type="password" placeholder="password" name="apass" id="apass">
 			<p> </p>
             <input type="submit" class="btn btn-info btn-lg" value="Log In">
+			
 			<p> </p>
 			<a href="index.php">Not an admin?</a>
+			<p> </p>
 		</div>
         </form>
 	</div>
+	<p> </p>
     </body>
 </html>
