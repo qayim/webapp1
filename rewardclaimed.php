@@ -125,7 +125,6 @@
 						foreach ($rows as $row) {
 								
 									echo('<div class="col-sm-4">');
-										echo('<a href="adminrewardedit.php?rid='.$row['rid'].'">');
 											echo('<div class="container-bg1">');
 												echo('<div class="container p-3 my-3">');
 													echo('<p>Name: ');
@@ -148,7 +147,6 @@
 													echo('</p>');
 												echo('</div>');
 											echo('</div>');
-										echo('</a>');
 									echo('</div>');
 						
 						}
