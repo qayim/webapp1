@@ -2,16 +2,12 @@
     session_start();
     require_once "pdo.php";
 
-
     if (isset($_POST["cancel"])) {
         header('Location: index.php');
         return;
     }
-	
-		
-	
     if (isset($_POST['email']) && isset($_POST['pass']) && isset($_POST['name']) && isset($_POST['phone']) && isset($_POST['address']) && isset($_POST['postal']) && isset($_POST['country']) && isset($_POST['gender'])) {
-					
+		
 		$refuser = 'F';
 		$reftype = 'first'; 
 		$coin = 0;
@@ -58,7 +54,7 @@
                 ':emai' => htmlentities($_POST['email']),
                 ':pas' => htmlentities(md5($_POST['pass'])),
                 ':nam' => htmlentities($_POST['name']),
-				':phon' => '60'.(htmlentities($_POST['phone'])),
+				':phon' => htmlentities($_POST['phone']),
                 ':addres' => htmlentities($_POST['address']),
                 ':posta' => htmlentities($_POST['postal']),
 				':countr' => htmlentities($_POST['country']),
@@ -68,17 +64,13 @@
 				':refertype' => $reftype,
 				':coinamount' => $coin,
             ));
-			
             $_SESSION['success'] = "Record added";
             header("Location: index.php");
             return;
         }
-						
-		
-		
-		
-		
     }
+	
+	
 ?>
 
 <!DOCTYPE html>
